@@ -13,8 +13,10 @@ test:
 	python3 -m pytest -vv --cov=src tests/*.py
 build:
 	# buid the container
+	docker build . -t fastapi-wikipedia
 deploy:
 	# deploy
 run:
 	# run the container
+	docker run -p 8000:8000 fastapi-wikipedia
 all: install format lint test build deploy 
